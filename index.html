@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Active Analytics</title>
   <style>
@@ -29,66 +29,39 @@
 
     /* Background blobs */
     .bg-blob { position: absolute; filter: blur(120px); opacity: .6; z-index: 0; }
-    .blob1 {
-      width: 800px; height: 600px;
-      background: var(--blob1);
-      border-radius: 60% 40% 30% 70%/50% 60% 40% 50%;
-      top: -150px; left: -150px;
-    }
-    .blob2 {
-      width: 700px; height: 700px;
-      background: var(--blob2);
-      border-radius: 50% 60% 40% 50%/60% 50% 70% 40%;
-      top: -200px; right: -200px;
-    }
-    .blob3 {
-      width: 600px; height: 600px;
-      background: var(--blob3);
-      border-radius: 40% 50% 60% 40%/50% 60% 50% 60%;
-      bottom: -150px; left: 50%; transform: translateX(-50%);
-    }
+    .blob1 { width:800px; height:600px; background:var(--blob1); border-radius:60% 40% 30% 70%/50% 60% 40% 50%; top:-150px; left:-150px; }
+    .blob2 { width:700px; height:700px; background:var(--blob2); border-radius:50% 60% 40% 50%/60% 50% 70% 40%; top:-200px; right:-200px; }
+    .blob3 { width:600px; height:600px; background:var(--blob3); border-radius:40% 50% 60% 40%/50% 60% 50% 60%; bottom:-150px; left:50%; transform:translateX(-50%); }
 
-    /* Top-right info */
-    .top-right {
-      position: absolute; top: 1rem; right: 1rem; z-index: 2;
-    }
-    .top-row { display: flex; align-items: center; }
-    .text-block { text-align: right; }
-    .text-block .assignment { font-size: 2rem; }
-    .logo { width: 80px; margin-left: .5rem; }
-    .authors { margin-top: .5rem; font-family: 'Abril Fatface', cursive; font-size: 1.2rem; }
+    /* Top‑right info */
+    .top-right { position:absolute; top:1rem; right:1rem; z-index:2; }
+    .top-row { display:flex; align-items:center; }
+    .text-block { text-align:right; }
+    .text-block .assignment { font-size:2rem; }
+    .logo { width:80px; margin-left:.5rem; }
+    .authors { margin-top:.5rem; font-family:'Abril Fatface',cursive; font-size:1.2rem; }
 
     /* Header */
-    header {
-      padding: 2rem; text-align: left; z-index: 1;
-    }
-    header h1 {
-      font-family: 'Abril Fatface', cursive; font-size: 6rem; line-height: 1; color: #000;
-    }
-    header p {
-      margin-top: .5rem; font-size: 1.2rem; color: #555;
-    }
+    header { padding:2rem; text-align:left; z-index:1; }
+    header h1 { font-family:'Abril Fatface',cursive; font-size:6rem; line-height:1; color:#000; }
+    header p { margin-top:.5rem; font-size:1.2rem; color:#555; }
 
-    /* Icons container */
-    .icons-container {
-      display: flex; justify-content: center; align-items: center; gap: 2rem;
-    }
-    .icon-card {
-      position: relative; text-align: center; transition: transform .3s ease;
-    }
-    .icon-card:hover { transform: scale(1.05); }
+    /* Icons */
+    .icons-container { display:flex; justify-content:center; align-items:center; gap:2rem; }
+    .icon-card { position:relative; text-align:center; transition:transform .3s ease; }
+    .icon-card:hover { transform:scale(1.05); }
     .icon-card img {
-      width: 25vw; max-width: 100%; height: auto; transition: transform .3s ease;
+      width:25vw; max-width:100%; height:auto; transition:transform .3s ease;
     }
-    .icon-card:hover img { transform: scale(1.2); }
+    .icon-card:hover img { transform:scale(1.2); }
     .icon-card span {
-      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-      font-size: 3rem; color: #444; text-transform: uppercase;
+      position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
+      font-size:3rem; color:#444; text-transform:uppercase;
     }
 
-    /* Landing intro below icons */
+    /* Landing intro: push down one full viewport height */
     .landing-intro {
-      margin-top: 4rem;
+      margin-top: 100vh;
       position: relative;
       width: 100%;
     }
@@ -124,22 +97,18 @@
       width: 100%; height: 100%;
       border: none;
     }
-
     /* Back-button */
     #back-btn {
-      position: fixed; bottom: 1rem; left: 1rem;
-      background: #fff; border: 4px solid;
+      position: fixed; bottom:1rem; left:1rem;
+      background:#fff; border:4px solid;
       border-image-source: linear-gradient(45deg, red, blue, grey);
-      border-image-slice: 1; padding: .5rem 1rem;
-      border-radius: 4px; cursor: pointer; z-index: 10000;
+      border-image-slice:1; padding:.5rem 1rem;
+      border-radius:4px; cursor:pointer; z-index:10000;
     }
-    #back-btn:hover { background: #f9f9f9; }
+    #back-btn:hover { background:#f9f9f9; }
 
     /* Footer */
-    footer {
-      text-align: center; padding: 1rem;
-      background: #0099cc; color: #fff; font-size: 1rem; z-index: 1;
-    }
+    footer { text-align:center; padding:1rem; background:#0099cc; color:#fff; font-size:1rem; z-index:1; }
   </style>
 </head>
 <body>
@@ -153,11 +122,7 @@
         <p>02.526 Interactive Data Visualization</p>
         <p class="assignment">Final Assignment</p>
       </div>
-      <img
-        src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/SUTD%20LOGO.png"
-        alt="SUTD Logo"
-        class="logo"
-      >
+      <img src="https://utkarsh3c.github.io/IDV-assignmentFINAL/SUTD%20LOGO.png" alt="SUTD Logo" class="logo">
     </div>
     <p class="authors">By – Irfan & Utkarsh</p>
   </div>
@@ -171,38 +136,26 @@
     <div class="icons-container">
       <div class="icon-card">
         <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV-HeatMAP/')">
-          <img
-            src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202%2C%202025%2C%2004_33_43%20AM.png"
-            alt="Heatmap Icon"
-          >
+          <img src="https://utkarsh3c.github.io/IDV-assignmentFINAL/ChatGPT%20Image%20May%202,%202025,%2004_33_43%20AM.png" alt="Heatmap Icon">
           <span>HEAT<em>MAP</em></span>
         </a>
       </div>
       <div class="icon-card">
         <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV-RouteMAP/')">
-          <img
-            src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202%2C%202025%2C%2004_51_56%20AM.png"
-            alt="RouteMap Icon"
-          >
+          <img src="https://utkarsh3c.github.io/IDV-assignmentFINAL/ChatGPT%20Image%20May%202,%202025,%2004_51_56%20AM.png" alt="RouteMap Icon">
           <span>ROUTE<em>MAP</em></span>
         </a>
       </div>
       <div class="icon-card">
         <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV---Dashboard/')">
-          <img
-            src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202%2C%202025%2C%2001_21_32%20PM.png"
-            alt="Dashboard Icon"
-          >
+          <img src="https://utkarsh3c.github.io/IDV-assignmentFINAL/ChatGPT%20Image%20May%202,%202025,%2001_21_32%20PM.png" alt="Dashboard Icon">
           <span>DASH<em>BOARD</em></span>
         </a>
       </div>
     </div>
 
     <div class="landing-intro">
-      <img
-        src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/Leonardo_Phoenix_10_Welcome_to_Active_Analytics_Singapores_mo_0.jpg"
-        alt="Welcome to Active Analytics"
-      >
+      <img src="https://utkarsh3c.github.io/IDV-assignmentFINAL/Leonardo_Phoenix_10_Welcome_to_Active_Analytics_Singapores_mo_0.jpg" alt="Welcome to Active Analytics">
       <div class="overlay-text">
         Welcome to Active Analytics — Singapore’s most powerful tool for personal mobility intelligence.
         From smart dashboards to dynamic route maps and blazing heatmaps, our platform gives you an eagle‑eye view
@@ -229,15 +182,14 @@
       document.querySelector('.top-right').style.display = 'none';
       document.querySelector('.landing-intro').style.display = 'none';
       document.querySelector('footer').style.display = 'none';
-      const v = document.getElementById('viewer');
-      v.style.display = 'block';
+      const viewer = document.getElementById('viewer');
+      viewer.style.display = 'block';
       document.getElementById('content-frame').src = url;
     }
-
     document.getElementById('back-btn').addEventListener('click', e => {
       e.preventDefault();
-      const v = document.getElementById('viewer');
-      v.style.display = 'none';
+      const viewer = document.getElementById('viewer');
+      viewer.style.display = 'none';
       document.getElementById('content-frame').src = '';
       document.querySelector('.icons-container').style.display = 'flex';
       document.querySelector('header').style.display = 'block';
