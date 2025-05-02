@@ -5,20 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Active Analytics</title>
   <style>
-    /* Import Abril Fatface */
     @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
-
-    /* Variables & Reset */
     :root {
       --icon-bg: #f3eee3;
       --blob1: radial-gradient(circle at 30% 30%, #ff86a8 0%, transparent 70%);
       --blob2: radial-gradient(circle at 70% 20%, #a0c4ff 0%, transparent 70%);
       --blob3: radial-gradient(circle at 50% 80%, #fdffb6 0%, transparent 70%);
     }
-    *,
-    *::before,
-    *::after { box-sizing: border-box; margin: 0; padding: 0 }
-    html, body { overflow: auto; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+    html, body { overflow: auto; height: 100% }
     body {
       font-family: Helvetica, Arial, sans-serif;
       background: var(--icon-bg);
@@ -29,261 +24,139 @@
       position: relative;
     }
 
-    /* Blurry background blobs */
-    .bg-blob {
-      position: absolute;
-      filter: blur(120px);
-      opacity: 0.6;
-      z-index: 0;
-    }
-    .blob1 {
-      width: 800px; height: 600px;
-      background: var(--blob1);
-      border-radius: 60% 40% 30% 70%/50% 60% 40% 50%;
-      top: -150px; left: -150px;
-    }
-    .blob2 {
-      width: 700px; height: 700px;
-      background: var(--blob2);
-      border-radius: 50% 60% 40% 50%/60% 50% 70% 40%;
-      top: -200px; right: -200px;
-    }
-    .blob3 {
-      width: 600px; height: 600px;
-      background: var(--blob3);
-      border-radius: 40% 50% 60% 40%/50% 60% 50% 60%;
-      bottom: -150px; left: 50%; transform: translateX(-50%);
-    }
+    /* Background blobs */
+    .bg-blob { position: absolute; filter: blur(120px); opacity: .6; z-index: 0 }
+    .blob1 { width:800px; height:600px; background:var(--blob1); border-radius:60% 40% 30% 70%/50% 60% 40% 50%; top:-150px; left:-150px }
+    .blob2 { width:700px; height:700px; background:var(--blob2); border-radius:50% 60% 40% 50%/60% 50% 70% 40%; top:-200px; right:-200px }
+    .blob3 { width:600px; height:600px; background:var(--blob3); border-radius:40% 50% 60% 40%/50% 60% 50% 60%; bottom:-150px; left:50%; transform:translateX(-50%) }
 
     /* Top‑right info */
-    .top-right {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      z-index: 2;
-    }
-    .top-row {
-      display: flex;
-      align-items: center;
-    }
-    .text-block {
-      text-align: right;
-    }
-    .text-block .assignment {
-      font-size: 2rem;
-    }
-    .logo {
-      width: 80px;
-      margin-left: 0.5rem;
-    }
-    .authors {
-      margin-top: 0.5rem;
-      font-family: 'Abril Fatface', cursive;
-      font-size: 1.2rem;
-      color: #333;
-    }
+    .top-right { position:absolute; top:1rem; right:1rem; z-index:2 }
+    .top-row { display:flex; align-items:center }
+    .text-block { text-align:right }
+    .text-block .assignment { font-size:2rem }
+    .logo { width:80px; margin-left:.5rem }
+    .authors { margin-top:.5rem; font-family:'Abril Fatface',cursive; font-size:1.2rem; color:#333 }
 
     /* Header */
-    header {
-      padding: 2rem;
-      text-align: left;
-      z-index: 1;
-    }
-    header h1 {
-      font-family: 'Abril Fatface', cursive;
-      font-size: 6rem;
-      line-height: 1;
-      color: #000;
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-      color: #555;
-    }
+    header { padding:2rem; text-align:left; z-index:1 }
+    header h1 { font-family:'Abril Fatface',cursive; font-size:6rem; line-height:1; color:#000 }
+    header p { margin-top:.5rem; font-size:1.2rem; color:#555 }
 
-    /* Main & Icons */
+    /* Icons */
     main {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      z-index: 1;
+      flex:1; display:flex; justify-content:center; align-items:center;
+      padding:2rem; z-index:1;
     }
     .icons-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      width: 100%;
-      transition: all 0.3s ease;
-    }
-    .icons-container.scrolled {
-      position: fixed;
-      top: 50%;
-      right: 1rem;
-      transform: translateY(-50%);
-      flex-direction: column;
-      gap: 1rem;
-      z-index: 2;
+      display:flex; justify-content:center; align-items:center;
+      gap:2rem; width:100%;
     }
     .icon-card {
-      position: relative;
-      text-align: center;
-      transition: transform 0.3s ease;
-      z-index: 1;
+      position:relative; text-align:center;
+      transition:transform .3s ease; z-index:1;
     }
-    .icon-card:hover {
-      transform: scale(1.05);
-    }
+    .icon-card:hover { transform:scale(1.05) }
     .icon-card img {
-      width: 25vw;
-      max-width: 100%;
-      height: auto;
-      transition: transform 0.3s ease;
+      width:25vw; max-width:100%; height:auto;
+      transition:transform .3s ease;
     }
-    .icon-card:hover img {
-      transform: scale(1.2);
-    }
+    .icon-card:hover img { transform:scale(1.2) }
     .icon-card span {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 3rem;
-      color: #444;
-      text-transform: uppercase;
-      z-index: 2;
+      position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
+      font-size:3rem; color:#444; text-transform:uppercase; z-index:2;
     }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #0099cc;
-      color: #fff;
-      font-size: 1rem;
-      z-index: 1;
+    /* Back‑button bottom‑left */
+    #back-btn {
+      position:fixed; bottom:1rem; left:1rem;
+      background:#fff; border:4px solid;
+      border-image-source:linear-gradient(45deg, red, blue, grey);
+      border-image-slice:1; padding:.5rem 1rem;
+      border-radius:4px; cursor:pointer; z-index:10000;
     }
+    #back-btn:hover { background:#f9f9f9 }
+
+    /* Footer */
+    footer { text-align:center; padding:1rem; background:#0099cc; color:#fff; font-size:1rem; z-index:1 }
 
     /* Full‑screen overlay */
     #full-screen-image {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.9);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
+      display:none; position:fixed; top:0; left:0;
+      width:100vw; height:100vh; background:rgba(0,0,0,.9);
+      justify-content:center; align-items:center; z-index:9999;
     }
-    #full-screen-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    #full-screen-image img { width:100%; height:100%; object-fit:cover }
     #close-overlay {
-      position: absolute;
-      top: 1rem; right: 1rem;
-      font-size: 2rem;
-      color: #fff;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      z-index: 10000;
+      position:absolute; top:1rem; right:1rem; font-size:2rem;
+      color:#fff; background:transparent; border:none;
+      cursor:pointer; z-index:10000;
     }
   </style>
 </head>
 <body>
-  <!-- Background blobs -->
   <div class="bg-blob blob1"></div>
   <div class="bg-blob blob2"></div>
   <div class="bg-blob blob3"></div>
 
-  <!-- Top‑right info -->
   <div class="top-right">
     <div class="top-row">
       <div class="text-block">
         <p>02.526 Interactive Data Visualization</p>
         <p class="assignment">Final Assignment</p>
       </div>
-      <img
-        src="https://utkarsh3c.github.io/IDV-assignmentFINAL/SUTD%20LOGO.png"
-        alt="SUTD Logo"
-        class="logo"
-      >
+      <img src="https://utkarsh3c.github.io/IDV-assignmentFINAL/SUTD%20LOGO.png" alt="SUTD Logo" class="logo">
     </div>
     <p class="authors">By - Irfan & Utkarsh</p>
   </div>
 
-  <!-- Header -->
   <header>
     <h1>Active<br>Analytics</h1>
     <p>Select a view:</p>
   </header>
 
-  <!-- Main content -->
   <main>
     <div class="icons-container">
-      <!-- Heatmap -->
       <div class="icon-card">
         <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV-HeatMAP/')">
-          <img
-            src="https://utkarsh3c.github.io/IDV-assignmentFINAL/ChatGPT%20Image%20May%202,%202025,%2004_33_43%20AM.png"
-            alt="Heatmap Icon"
-          >
+          <img src="https://utkarsh3c.github.io/IDV-assignmentFINAL/ChatGPT%20Image%20May%202%2C%202025%2C%2004_33_43%20AM.png" alt="Heatmap Icon">
           <span>HEAT<em>MAP</em></span>
         </a>
       </div>
-      <!-- RouteMap -->
       <div class="icon-card">
         <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV-RouteMAP/')">
-          <img
-            src="https://utkarsh3c.github.io/IDV-assignmentFINAL/ChatGPT%20Image%20May%202,%202025,%2004_51_56%20AM.png"
-            alt="RouteMap Icon"
-          >
+          <img src="https://utkarsh3c.github.io/IDV-assignmentFINAL/ChatGPT%20Image%20May%202%2C%202025%2C%2004_51_56%20AM.png" alt="RouteMap Icon">
           <span>ROUTE<em>MAP</em></span>
         </a>
       </div>
-      <!-- Dashboard -->
       <div class="icon-card">
         <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV---Dashboard/')">
-          <img
-            src="https://utkarsh3c.github.io/IDV-assignmentFINAL/ChatGPT%20Image%20May%202,%202025,%2001_21_32%20PM.png"
-            alt="Dashboard Icon"
-          >
+          <img src="https://utkarsh3c.github.io/IDV-assignmentFINAL/ChatGPT%20Image%20May%202%2C%202025%2C%2001_21_32%20PM.png" alt="Dashboard Icon">
           <span>DASH<em>BOARD</em></span>
         </a>
       </div>
     </div>
 
-    <!-- Iframe viewer -->
     <div id="viewer" style="display:none; flex:1; flex-direction:column; position:relative; width:100%;">
-      <button id="back-btn" style="position:absolute; top:1rem; left:1rem; z-index:3;">← Back</button>
+      <button id="back-btn">← Back</button>
       <iframe id="content-frame" style="flex:1; width:100%; border:none;"></iframe>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>&copy; 2025 Activity Analytics</footer>
 
-  <!-- Full‑screen overlay -->
   <div id="full-screen-image">
     <button id="close-overlay">×</button>
-    <img
-      src="https://utkarsh3c.github.io/IDV-assignmentFINAL/Screenshot%202025-05-02%20123730.png"
-      alt="Full Screen Screenshot"
-    >
+    <img src="https://utkarsh3c.github.io/IDV-assignmentFINAL/Screenshot%202025-05-02%20123730.png" alt="Full Screen Screenshot">
   </div>
 
   <script>
-    function loadPage(event, url) {
-      event.preventDefault();
+    function loadPage(e, url) {
+      e.preventDefault();
       document.querySelector('.icons-container').style.display = 'none';
       document.querySelector('header').style.display = 'none';
       document.querySelector('.top-right').style.display = 'none';
       document.querySelector('footer').style.display = 'none';
-
       const viewer = document.getElementById('viewer');
       viewer.style.display = 'flex';
       viewer.style.position = 'fixed';
@@ -303,20 +176,6 @@
       document.querySelector('header').style.display = 'block';
       document.querySelector('.top-right').style.display = 'block';
       document.querySelector('footer').style.display = 'block';
-    });
-
-    window.addEventListener('scroll', () => {
-      document.querySelector('.icons-container')
-        .classList.toggle('scrolled', window.scrollY > 100);
-
-      if (window.scrollY > window.innerHeight) {
-        document.getElementById('full-screen-image').style.display = 'flex';
-        document.querySelector('main').style.display = 'none';
-        document.querySelector('header').style.display = 'none';
-        document.querySelector('.top-right').style.display = 'none';
-        document.querySelector('footer').style.display = 'none';
-        document.body.style.overflow = 'hidden';
-      }
     });
 
     document.getElementById('close-overlay').addEventListener('click', () => {
