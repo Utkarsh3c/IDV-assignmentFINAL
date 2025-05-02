@@ -8,150 +8,141 @@
     /* Import Abril Fatface */
     @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
-    /* Reset + Vars */
+    /* Reset + Variables */
     :root {
       --icon-bg: #f3eee3;
       --blob1: radial-gradient(circle at 30% 30%, #ff86a8 0%, transparent 70%);
       --blob2: radial-gradient(circle at 70% 20%, #a0c4ff 0%, transparent 70%);
       --blob3: radial-gradient(circle at 50% 80%, #fdffb6 0%, transparent 70%);
     }
-    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0 }
-    html, body { height:100%; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
     body {
+      font-family: Helvetica, Arial, sans-serif;
       background: var(--icon-bg);
       color: #333;
-      font-family: Helvetica, Arial, sans-serif;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
       position: relative;
     }
 
-    /* Blobs */
-    .bg-blob { position:absolute; filter:blur(120px); opacity:.6; z-index:0 }
-    .blob1 { width:800px; height:600px; background:var(--blob1); border-radius:60% 40% 30% 70%/50% 60% 40% 50%; top:-150px; left:-150px }
-    .blob2 { width:700px; height:700px; background:var(--blob2); border-radius:50% 60% 40% 50%/60% 50% 70% 40%; top:-200px; right:-200px }
-    .blob3 { width:600px; height:600px; background:var(--blob3); border-radius:40% 50% 60% 40%/50% 60% 50% 60%; bottom:-150px; left:50%; transform:translateX(-50%) }
+    /* Background blobs */
+    .bg-blob { position: absolute; filter: blur(120px); opacity: .6; z-index: 0; }
+    .blob1 {
+      width: 800px; height: 600px;
+      background: var(--blob1);
+      border-radius: 60% 40% 30% 70%/50% 60% 40% 50%;
+      top: -150px; left: -150px;
+    }
+    .blob2 {
+      width: 700px; height: 700px;
+      background: var(--blob2);
+      border-radius: 50% 60% 40% 50%/60% 50% 70% 40%;
+      top: -200px; right: -200px;
+    }
+    .blob3 {
+      width: 600px; height: 600px;
+      background: var(--blob3);
+      border-radius: 40% 50% 60% 40%/50% 60% 50% 60%;
+      bottom: -150px; left: 50%; transform: translateX(-50%);
+    }
 
-    /* Top‑right info */
-    .top-right { position:absolute; top:1rem; right:1rem; z-index:2; }
-    .top-row { display:flex; align-items:center; }
-    .text-block { text-align:right; }
-    .text-block .assignment { font-size:2rem; }
-    .logo { width:80px; margin-left:.5rem; }
-    .authors { margin-top:.5rem; font-family:'Abril Fatface',cursive; font-size:1.2rem; }
+    /* Top-right info */
+    .top-right { position: absolute; top: 1rem; right: 1rem; z-index: 2; }
+    .top-row { display: flex; align-items: center; }
+    .text-block { text-align: right; }
+    .text-block .assignment { font-size: 2rem; }
+    .logo { width: 80px; margin-left: .5rem; }
+    .authors { margin-top: .5rem; font-family: 'Abril Fatface', cursive; font-size: 1.2rem; }
 
     /* Header */
-    header {
-      padding:2rem;
-      text-align:left;
-      z-index:1;
-    }
+    header { padding: 2rem; text-align: left; z-index: 1; }
     header h1 {
-      font-family:'Abril Fatface',cursive;
-      font-size:6rem;
-      line-height:1;
-      color:#000;
-      margin:0;
+      font-family: 'Abril Fatface', cursive;
+      font-size: 6rem; line-height: 1; color: #000; margin: 0;
     }
-    header p {
-      margin-top:.5rem;
-      font-size:1.2rem;
-      color:#555;
-    }
+    header p { margin-top: .5rem; font-size: 1.2rem; color: #555; }
 
-    /* Icons */
+    /* Icons container */
     .icons-container {
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:2rem;
-      padding:2rem 0;
+      display: flex; justify-content: center; align-items: center;
+      gap: 2rem; padding: 2rem 0;
     }
     .icon-card {
-      position:relative;
-      transition:transform .3s ease;
-      text-align:center;
+      position: relative; text-align: center;
+      transition: transform .3s ease;
     }
-    .icon-card:hover { transform:scale(1.05); }
+    .icon-card:hover { transform: scale(1.05); }
     .icon-card img {
-      width:25vw;
-      max-width:100%;
-      height:auto;
-      transition:transform .3s ease;
+      width: 25vw; max-width: 100%; height: auto;
+      transition: transform .3s ease;
     }
-    .icon-card:hover img { transform:scale(1.2); }
+    .icon-card:hover img { transform: scale(1.2); }
     .icon-card span {
-      position:absolute;
-      bottom:10px;
-      left:50%;
-      transform:translateX(-50%);
-      font-size:3rem;
-      color:#444;
-      text-transform:uppercase;
+      position: absolute; bottom: 10px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 3rem; color: #444; text-transform: uppercase;
     }
 
-    /* Landing intro: two‑col */
+    /* Landing intro: two-column layout */
     .landing-intro {
-      display:flex;
-      align-items:center;
-      gap:2rem;
-      padding:2rem;
-      width:100%;
+      display: flex; align-items: center; gap: 2rem;
+      padding: 2rem; width: 100%;
     }
     .landing-intro .overlay-text {
-      width:25%;
-      background:rgba(255,255,255,0.8);
-      padding:2rem;
-      font-size:1.2rem;
-      line-height:1.5;
-      color:#222;
+      width: 25%;
+      background: rgba(255,255,255,0.8);
+      padding: 2rem;
+      font-size: 1.2rem; line-height: 1.5; color: #222;
     }
     .landing-intro img {
-      width:75%;
-      height:auto;
-      display:block;
+      width: 75%; height: auto; display: block;
     }
 
-    /* Full‑screen iframe overlay */
+    /* Gaps paragraphs */
+    .gaps {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .gaps p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Full-screen viewer */
     #viewer {
-      display:none;
-      position:fixed;
-      top:0; left:0;
-      width:100vw; height:100vh;
-      z-index:9999;
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 9999;
     }
     #content-frame {
-      position:absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      border:none;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%; border: none;
     }
 
     /* Back button */
     #back-btn {
-      position:fixed;
-      bottom:1rem; left:1rem;
-      background:#fff;
-      border:4px solid;
-      border-image-source:linear-gradient(45deg, red, blue, grey);
-      border-image-slice:1;
-      padding:.5rem 1rem;
-      border-radius:4px;
-      cursor:pointer;
-      z-index:10000;
+      position: fixed; bottom: 1rem; left: 1rem;
+      background: #fff; border: 4px solid;
+      border-image-source: linear-gradient(45deg, red, blue, grey);
+      border-image-slice: 1;
+      padding: .5rem 1rem; border-radius: 4px;
+      cursor: pointer; z-index: 10000;
     }
-    #back-btn:hover { background:#f9f9f9; }
+    #back-btn:hover { background: #f9f9f9; }
 
     /* Footer */
     footer {
-      margin-top:auto;
-      text-align:center;
-      padding:1rem;
-      background:#0099cc;
-      color:#fff;
-      font-size:1rem;
-      z-index:1;
+      margin-top: auto;
+      text-align: center; padding: 1rem;
+      background: #0099cc; color: #fff; font-size: 1rem;
+      z-index: 1;
     }
   </style>
 </head>
@@ -198,6 +189,7 @@
       </div>
     </div>
 
+    <!-- Landing intro -->
     <div class="landing-intro">
       <div class="overlay-text">
         Welcome to Active Analytics — Singapore’s most powerful tool for personal mobility intelligence.
@@ -210,6 +202,14 @@
       <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/Leonardo_Phoenix_10_Welcome_to_Active_Analytics_Singapores_mo_0.jpg" alt="Welcome to Active Analytics">
     </div>
 
+    <!-- Gaps section: three paragraphs -->
+    <div class="gaps">
+      <p>Active Analytics gives you premium features without the premium price. Unlike other platforms hiding tools behind paywalls, we offer full access to dashboards, heatmaps, and mobility insights for free.</p>
+      <p>You own your data — completely. With Active Analytics, you can export, control, or delete your personal mobility data at any time. No tracking games, no third-party sharing, just total transparency.</p>
+      <p>Forget jumping between apps. Active Analytics brings all your mobility metrics into one powerful, unified platform. Compare performance, discover insights, and outpace every other fitness tool in the Singapore market.</p>
+    </div>
+
+    <!-- Viewer & Back button -->
     <div id="viewer">
       <button id="back-btn">← Back</button>
       <iframe id="content-frame"></iframe>
@@ -225,6 +225,7 @@
       document.querySelector('header').style.display = 'none';
       document.querySelector('.top-right').style.display = 'none';
       document.querySelector('.landing-intro').style.display = 'none';
+      document.querySelector('.gaps').style.display = 'none';
       document.querySelector('footer').style.display = 'none';
       const v = document.getElementById('viewer');
       v.style.display = 'block';
@@ -239,6 +240,7 @@
       document.querySelector('header').style.display = 'block';
       document.querySelector('.top-right').style.display = 'block';
       document.querySelector('.landing-intro').style.display = 'flex';
+      document.querySelector('.gaps').style.display = 'block';
       document.querySelector('footer').style.display = 'block';
       window.scrollTo(0,0);
     });
