@@ -8,7 +8,7 @@
     /* Import Abril Fatface */
     @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
-    /* Reset + Variables */
+    /* Reset & Variables */
     :root {
       --icon-bg: #f3eee3;
       --blob1: radial-gradient(circle at 30% 30%, #ff86a8 0%, transparent 70%);
@@ -48,8 +48,10 @@
       bottom: -150px; left: 50%; transform: translateX(-50%);
     }
 
-    /* Top-right info */
-    .top-right { position: absolute; top: 1rem; right: 1rem; z-index: 2; }
+    /* Top‑right info */
+    .top-right {
+      position: absolute; top: 1rem; right: 1rem; z-index: 2;
+    }
     .top-row { display: flex; align-items: center; }
     .text-block { text-align: right; }
     .text-block .assignment { font-size: 2rem; }
@@ -57,12 +59,16 @@
     .authors { margin-top: .5rem; font-family: 'Abril Fatface', cursive; font-size: 1.2rem; }
 
     /* Header */
-    header { padding: 2rem; text-align: left; z-index: 1; }
+    header {
+      padding: 2rem; text-align: left; z-index: 1;
+    }
     header h1 {
       font-family: 'Abril Fatface', cursive;
       font-size: 6rem; line-height: 1; color: #000; margin: 0;
     }
-    header p { margin-top: .5rem; font-size: 1.2rem; color: #555; }
+    header p {
+      margin-top: .5rem; font-size: 1.2rem; color: #555;
+    }
 
     /* Icons container */
     .icons-container {
@@ -100,29 +106,40 @@
       width: 75%; height: auto; display: block;
     }
 
+    /* Feature grid (3-column paragraphs) */
+    .feature-grid {
+      display: flex; gap: 2rem; padding: 2rem;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .feature {
+      flex: 1;
+    }
+    .feature h3 {
+      font-weight: bold; font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .feature p {
+      font-size: 1rem; line-height: 1.6; text-align: left;
+    }
+    @media (max-width: 768px) {
+      .feature-grid { flex-direction: column; }
+    }
+
     /* Gaps paragraphs */
     .gaps {
-      padding: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
+      padding: 2rem; max-width: 800px; margin: 0 auto;
     }
     .gaps p {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      line-height: 1.6;
+      margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.6;
     }
 
     /* Full-screen viewer */
     #viewer {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      z-index: 9999;
+      display: none; position: fixed; top: 0; left: 0;
+      width: 100vw; height: 100vh; z-index: 9999;
     }
     #content-frame {
-      position: absolute;
-      top: 0; left: 0;
+      position: absolute; top: 0; left: 0;
       width: 100%; height: 100%; border: none;
     }
 
@@ -131,18 +148,16 @@
       position: fixed; bottom: 1rem; left: 1rem;
       background: #fff; border: 4px solid;
       border-image-source: linear-gradient(45deg, red, blue, grey);
-      border-image-slice: 1;
-      padding: .5rem 1rem; border-radius: 4px;
-      cursor: pointer; z-index: 10000;
+      border-image-slice: 1; padding: .5rem 1rem;
+      border-radius: 4px; cursor: pointer; z-index: 10000;
     }
     #back-btn:hover { background: #f9f9f9; }
 
     /* Footer */
     footer {
-      margin-top: auto;
-      text-align: center; padding: 1rem;
-      background: #0099cc; color: #fff; font-size: 1rem;
-      z-index: 1;
+      margin-top: auto; text-align: center;
+      padding: 1rem; background: #0099cc; color: #fff;
+      font-size: 1rem; z-index: 1;
     }
   </style>
 </head>
@@ -157,7 +172,8 @@
         <p>02.526 Interactive Data Visualization</p>
         <p class="assignment">Final Assignment</p>
       </div>
-      <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/SUTD%20LOGO.png" alt="SUTD Logo" class="logo">
+      <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/SUTD%20LOGO.png"
+           alt="SUTD Logo" class="logo">
     </div>
     <p class="authors">By – Irfan & Utkarsh</p>
   </div>
@@ -168,22 +184,26 @@
   </header>
 
   <main>
+    <!-- Icons -->
     <div class="icons-container">
       <div class="icon-card">
         <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV-HeatMAP/')">
-          <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202,%202025,%2004_33_43%20AM.png" alt="Heatmap Icon">
+          <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202,%202025,%2004_33_43%20AM.png"
+               alt="Heatmap Icon">
           <span>HEAT<em>MAP</em></span>
         </a>
       </div>
       <div class="icon-card">
         <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV-RouteMAP/')">
-          <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202,%202025,%2004_51_56%20AM.png" alt="RouteMap Icon">
+          <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202,%202025,%2004_51_56%20AM.png"
+               alt="RouteMap Icon">
           <span>ROUTE<em>MAP</em></span>
         </a>
       </div>
       <div class="icon-card">
         <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV---Dashboard/')">
-          <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202,%202025,%2001_21_32%20PM.png" alt="Dashboard Icon">
+          <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202,%202025,%2001_21_32%20PM.png"
+               alt="Dashboard Icon">
           <span>DASH<em>BOARD</em></span>
         </a>
       </div>
@@ -199,14 +219,68 @@
         data — it’s domination. Plug in, power up, and watch your world unfold with the smartest mobility platform
         Singapore has ever seen.
       </div>
-      <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/Leonardo_Phoenix_10_Welcome_to_Active_Analytics_Singapores_mo_0.jpg" alt="Welcome to Active Analytics">
+      <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/Leonardo_Phoenix_10_Welcome_to_Active_Analytics_Singapores_mo_0.jpg"
+           alt="Welcome to Active Analytics">
     </div>
 
-    <!-- Gaps section: three paragraphs -->
+    <!-- Feature grid -->
+    <section class="feature-grid">
+      <div class="feature">
+        <h3>Premium Access, Zero Paywalls</h3>
+        <p>
+          Active Analytics delivers every feature you need without locking anything behind a paywall.
+          While other mobility and fitness platforms make you pay to access advanced dashboards,
+          route tracking, or heatmap visualizations, we give it all to you for free. No trial periods,
+          no hidden fees, no forced upgrades — just pure analytical power from the moment you sign up.
+          We believe that insights about your movement shouldn’t be gated. With Active Analytics,
+          you’re not just getting access; you’re getting a competitive edge in navigating and
+          understanding your activity in Singapore’s urban environment — completely unlocked,
+          from day one.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Full Data Ownership</h3>
+        <p>
+          At Active Analytics, your data belongs to you — always. Unlike other platforms that collect
+          your personal mobility information and use it for targeted ads or third-party deals, we put
+          full control in your hands. You can view, export, or permanently delete your data at any time.
+          No hidden tracking, no backend selling, and absolutely no compromises on privacy. Our mission
+          is simple: empower you with tools to analyze and act on your own terms. You’re not the product —
+          you’re the user. With full data autonomy, Active Analytics ensures transparency and trust
+          every step, route, and decision of the way.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Unified Mobility Hub</h3>
+        <p>
+          Why waste time switching between multiple fitness and mobility apps when Active Analytics
+          gives you everything in one powerful platform? While other services scatter your insights
+          across different tools, we unify your mobility data into a single, intelligent hub. Track
+          your activity, view comparative analytics, discover your top routes, and analyze performance —
+          all without needing five different apps. No more fragmented dashboards or syncing issues.
+          With Active Analytics, you experience seamless integration and unmatched convenience.
+          It’s the only place where performance meets precision, giving you a clear, competitive edge
+          over every other fitness platform in Singapore. All in one.
+        </p>
+      </div>
+    </section>
+
+    <!-- Gaps paragraphs -->
     <div class="gaps">
-      <p>Active Analytics gives you premium features without the premium price. Unlike other platforms hiding tools behind paywalls, we offer full access to dashboards, heatmaps, and mobility insights for free.</p>
-      <p>You own your data — completely. With Active Analytics, you can export, control, or delete your personal mobility data at any time. No tracking games, no third-party sharing, just total transparency.</p>
-      <p>Forget jumping between apps. Active Analytics brings all your mobility metrics into one powerful, unified platform. Compare performance, discover insights, and outpace every other fitness tool in the Singapore market.</p>
+      <p>
+        Active Analytics gives you premium features without the premium price. Unlike other platforms
+        hiding tools behind paywalls, we offer full access to dashboards, heatmaps, and mobility insights
+        for free.
+      </p>
+      <p>
+        You own your data — completely. With Active Analytics, you can export, control, or delete your
+        personal mobility data at any time. No tracking games, no third-party sharing, just total transparency.
+      </p>
+      <p>
+        Forget jumping between apps. Active Analytics brings all your mobility metrics into one powerful,
+        unified platform. Compare performance, discover insights, and outpace every other fitness tool
+        in the Singapore market.
+      </p>
     </div>
 
     <!-- Viewer & Back button -->
@@ -225,21 +299,24 @@
       document.querySelector('header').style.display = 'none';
       document.querySelector('.top-right').style.display = 'none';
       document.querySelector('.landing-intro').style.display = 'none';
+      document.querySelector('.feature-grid').style.display = 'none';
       document.querySelector('.gaps').style.display = 'none';
       document.querySelector('footer').style.display = 'none';
-      const v = document.getElementById('viewer');
-      v.style.display = 'block';
+      const viewer = document.getElementById('viewer');
+      viewer.style.display = 'block';
       document.getElementById('content-frame').src = url;
     }
+
     document.getElementById('back-btn').addEventListener('click', e => {
       e.preventDefault();
-      const v = document.getElementById('viewer');
-      v.style.display = 'none';
+      const viewer = document.getElementById('viewer');
+      viewer.style.display = 'none';
       document.getElementById('content-frame').src = '';
       document.querySelector('.icons-container').style.display = 'flex';
       document.querySelector('header').style.display = 'block';
       document.querySelector('.top-right').style.display = 'block';
       document.querySelector('.landing-intro').style.display = 'flex';
+      document.querySelector('.feature-grid').style.display = 'flex';
       document.querySelector('.gaps').style.display = 'block';
       document.querySelector('footer').style.display = 'block';
       window.scrollTo(0,0);
