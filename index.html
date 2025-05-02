@@ -8,7 +8,7 @@
     /* Import Abril Fatface */
     @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
-    /* Reset & Variables */
+    /* Reset + Variables */
     :root {
       --icon-bg: #f3eee3;
       --blob1: radial-gradient(circle at 30% 30%, #ff86a8 0%, transparent 70%);
@@ -76,18 +76,15 @@
       gap: 2rem; padding: 2rem 0;
     }
     .icon-card {
-      position: relative; text-align: center;
-      transition: transform .3s ease;
+      position: relative; text-align: center; transition: transform .3s ease;
     }
     .icon-card:hover { transform: scale(1.05); }
     .icon-card img {
-      width: 25vw; max-width: 100%; height: auto;
-      transition: transform .3s ease;
+      width: 25vw; max-width: 100%; height: auto; transition: transform .3s ease;
     }
     .icon-card:hover img { transform: scale(1.2); }
     .icon-card span {
-      position: absolute; bottom: 10px; left: 50%;
-      transform: translateX(-50%);
+      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
       font-size: 3rem; color: #444; text-transform: uppercase;
     }
 
@@ -115,22 +112,13 @@
       flex: 1;
     }
     .feature h3 {
-      font-weight: bold; font-size: 1.25rem;
-      margin-bottom: 0.75rem;
+      font-weight: bold; font-size: 1.25rem; margin-bottom: .75rem;
     }
     .feature p {
       font-size: 1rem; line-height: 1.6; text-align: left;
     }
     @media (max-width: 768px) {
       .feature-grid { flex-direction: column; }
-    }
-
-    /* Gaps paragraphs */
-    .gaps {
-      padding: 2rem; max-width: 800px; margin: 0 auto;
-    }
-    .gaps p {
-      margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.6;
     }
 
     /* Full-screen viewer */
@@ -184,7 +172,7 @@
   </header>
 
   <main>
-    <!-- Icons -->
+    <!-- Icons section -->
     <div class="icons-container">
       <div class="icon-card">
         <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV-HeatMAP/')">
@@ -265,25 +253,7 @@
       </div>
     </section>
 
-    <!-- Gaps paragraphs -->
-    <div class="gaps">
-      <p>
-        Active Analytics gives you premium features without the premium price. Unlike other platforms
-        hiding tools behind paywalls, we offer full access to dashboards, heatmaps, and mobility insights
-        for free.
-      </p>
-      <p>
-        You own your data — completely. With Active Analytics, you can export, control, or delete your
-        personal mobility data at any time. No tracking games, no third-party sharing, just total transparency.
-      </p>
-      <p>
-        Forget jumping between apps. Active Analytics brings all your mobility metrics into one powerful,
-        unified platform. Compare performance, discover insights, and outpace every other fitness tool
-        in the Singapore market.
-      </p>
-    </div>
-
-    <!-- Viewer & Back button -->
+    <!-- Full-screen viewer & Back button -->
     <div id="viewer">
       <button id="back-btn">← Back</button>
       <iframe id="content-frame"></iframe>
@@ -300,24 +270,19 @@
       document.querySelector('.top-right').style.display = 'none';
       document.querySelector('.landing-intro').style.display = 'none';
       document.querySelector('.feature-grid').style.display = 'none';
-      document.querySelector('.gaps').style.display = 'none';
       document.querySelector('footer').style.display = 'none';
-      const viewer = document.getElementById('viewer');
-      viewer.style.display = 'block';
+      document.getElementById('viewer').style.display = 'block';
       document.getElementById('content-frame').src = url;
     }
-
     document.getElementById('back-btn').addEventListener('click', e => {
       e.preventDefault();
-      const viewer = document.getElementById('viewer');
-      viewer.style.display = 'none';
+      document.getElementById('viewer').style.display = 'none';
       document.getElementById('content-frame').src = '';
       document.querySelector('.icons-container').style.display = 'flex';
       document.querySelector('header').style.display = 'block';
       document.querySelector('.top-right').style.display = 'block';
       document.querySelector('.landing-intro').style.display = 'flex';
       document.querySelector('.feature-grid').style.display = 'flex';
-      document.querySelector('.gaps').style.display = 'block';
       document.querySelector('footer').style.display = 'block';
       window.scrollTo(0,0);
     });
