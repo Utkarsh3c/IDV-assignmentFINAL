@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Active Analytics</title>
   <style>
     /* Import Abril Fatface */
@@ -15,7 +15,7 @@
       --blob2: radial-gradient(circle at 70% 20%, #a0c4ff 0%, transparent 70%);
       --blob3: radial-gradient(circle at 50% 80%, #fdffb6 0%, transparent 70%);
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; overflow: auto; }
     body {
       font-family: Helvetica, Arial, sans-serif;
@@ -34,20 +34,26 @@
       opacity: .6;
       z-index: 0;
     }
-    .blob1 { width:800px; height:600px; background:var(--blob1);
-      border-radius:60% 40% 30% 70%/50% 60% 40% 50%;
-      top:-150px; left:-150px;
+    .blob1 {
+      width: 800px; height: 600px;
+      background: var(--blob1);
+      border-radius: 60% 40% 30% 70%/50% 60% 40% 50%;
+      top: -150px; left: -150px;
     }
-    .blob2 { width:700px; height:700px; background:var(--blob2);
-      border-radius:50% 60% 40% 50%/60% 50% 70% 40%;
-      top:-200px; right:-200px;
+    .blob2 {
+      width: 700px; height: 700px;
+      background: var(--blob2);
+      border-radius: 50% 60% 40% 50%/60% 50% 70% 40%;
+      top: -200px; right: -200px;
     }
-    .blob3 { width:600px; height:600px; background:var(--blob3);
-      border-radius:40% 50% 60% 40%/50% 60% 50% 60%;
-      bottom:-150px; left:50%; transform:translateX(-50%);
+    .blob3 {
+      width: 600px; height: 600px;
+      background: var(--blob3);
+      border-radius: 40% 50% 60% 40%/50% 60% 50% 60%;
+      bottom: -150px; left: 50%; transform: translateX(-50%);
     }
 
-    /* Top-right info */
+    /* Top‑right info */
     .top-right {
       position: absolute;
       top: 1rem;
@@ -98,16 +104,6 @@
       align-items: center;
       gap: 2rem;
       width: 100%;
-      transition: all .3s ease;
-    }
-    .icons-container.scrolled {
-      position: fixed;
-      top: 50%;
-      right: 1rem;
-      transform: translateY(-50%);
-      flex-direction: column;
-      gap: 1rem;
-      z-index: 2;
     }
     .icon-card {
       position: relative;
@@ -134,7 +130,7 @@
       z-index: 2;
     }
 
-    /* Back-button bottom-left with gradient border */
+    /* Back‑button bottom‑left with gradient border */
     #back-btn {
       position: fixed;
       bottom: 1rem;
@@ -160,13 +156,13 @@
       z-index: 1;
     }
 
-    /* Full-screen overlay */
+    /* Full‑screen overlay (won’t trigger automatically) */
     #full-screen-image {
       display: none;
       position: fixed;
       top: 0; left: 0;
       width: 100vw; height: 100vh;
-      background: rgba(0,0,0, .9);
+      background: rgba(0,0,0,.9);
       justify-content: center;
       align-items: center;
       z-index: 9999;
@@ -187,12 +183,10 @@
   </style>
 </head>
 <body>
-  <!-- Blobs -->
   <div class="bg-blob blob1"></div>
   <div class="bg-blob blob2"></div>
   <div class="bg-blob blob3"></div>
 
-  <!-- Top-right info -->
   <div class="top-right">
     <div class="top-row">
       <div class="text-block">
@@ -208,18 +202,17 @@
     <p class="authors">By - Irfan & Utkarsh</p>
   </div>
 
-  <!-- Header -->
   <header>
     <h1>Active<br>Analytics</h1>
     <p>Select a view:</p>
   </header>
 
-  <!-- Icons -->
   <main>
     <div class="icons-container">
       <!-- Heatmap -->
       <div class="icon-card">
-        <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV-HeatMAP/')">
+        <a href="#"
+           onclick="loadPage(event,'https://utkarsh3c.github.io/IDV-HeatMAP/')">
           <img
             src="https://utkarsh3c.github.io/IDV-assignmentFINAL/ChatGPT%20Image%20May%202%2C%202025%2C%2004_33_43%20AM.png"
             alt="Heatmap Icon"
@@ -227,9 +220,11 @@
           <span>HEAT<em>MAP</em></span>
         </a>
       </div>
+
       <!-- RouteMap -->
       <div class="icon-card">
-        <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV-RouteMAP/')">
+        <a href="#"
+           onclick="loadPage(event,'https://utkarsh3c.github.io/IDV-RouteMAP/')">
           <img
             src="https://utkarsh3c.github.io/IDV-assignmentFINAL/ChatGPT%20Image%20May%202%2C%202025%2C%2004_51_56%20AM.png"
             alt="RouteMap Icon"
@@ -237,9 +232,11 @@
           <span>ROUTE<em>MAP</em></span>
         </a>
       </div>
+
       <!-- Dashboard -->
       <div class="icon-card">
-        <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV---Dashboard/')">
+        <a href="#"
+           onclick="loadPage(event,'https://utkarsh3c.github.io/IDV---Dashboard/')">
           <img
             src="https://utkarsh3c.github.io/IDV-assignmentFINAL/ChatGPT%20Image%20May%202%2C%202025%2C%2001_21_32%20PM.png"
             alt="Dashboard Icon"
@@ -249,7 +246,6 @@
       </div>
     </div>
 
-    <!-- Viewer + Back button -->
     <div id="viewer" style="display:none; flex:1; flex-direction:column; position:relative; width:100%;">
       <button id="back-btn">← Back</button>
       <iframe id="content-frame" style="flex:1; width:100%; border:none;"></iframe>
@@ -258,7 +254,6 @@
 
   <footer>&copy; 2025 Activity Analytics</footer>
 
-  <!-- Scroll-triggered overlay -->
   <div id="full-screen-image">
     <button id="close-overlay">×</button>
     <img
@@ -274,41 +269,25 @@
       document.querySelector('header').style.display = 'none';
       document.querySelector('.top-right').style.display = 'none';
       document.querySelector('footer').style.display = 'none';
-      const v = document.getElementById('viewer');
-      v.style.display = 'flex';
-      v.style.position = 'fixed';
-      v.style.top = 0;
-      v.style.left = 0;
-      v.style.width = '100%';
-      v.style.height = '100%';
+      const viewer = document.getElementById('viewer');
+      viewer.style.display = 'flex';
+      viewer.style.position = 'fixed';
+      viewer.style.top = 0;
+      viewer.style.left = 0;
+      viewer.style.width = '100%';
+      viewer.style.height = '100%';
       document.getElementById('content-frame').src = url;
     }
 
     document.getElementById('back-btn').addEventListener('click', e => {
       e.preventDefault();
-      const v = document.getElementById('viewer');
-      v.style.display = 'none';
+      const viewer = document.getElementById('viewer');
+      viewer.style.display = 'none';
       document.getElementById('content-frame').src = '';
       document.querySelector('.icons-container').style.display = 'flex';
       document.querySelector('header').style.display = 'block';
       document.querySelector('.top-right').style.display = 'block';
       document.querySelector('footer').style.display = 'block';
-    });
-
-    window.addEventListener('scroll', () => {
-      // sticky icons
-      document.querySelector('.icons-container')
-        .classList.toggle('scrolled', window.scrollY > 100);
-
-      // show full-screen overlay on scroll past one viewport
-      if (window.scrollY > window.innerHeight) {
-        document.getElementById('full-screen-image').style.display = 'flex';
-        document.querySelector('main').style.display = 'none';
-        document.querySelector('header').style.display = 'none';
-        document.querySelector('.top-right').style.display = 'none';
-        document.querySelector('footer').style.display = 'none';
-        document.body.style.overflow = 'hidden';
-      }
     });
 
     document.getElementById('close-overlay').addEventListener('click', () => {
