@@ -4,149 +4,75 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Active Analytics</title>
+
+  <!-- Faster than @import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+  <!-- If this repo is served at /IDV-assignmentFINAL/, keep base -->
+  <base href="/IDV-assignmentFINAL/">
+
   <style>
-    /* Import Abril Fatface */
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+    :root{
+      --icon-bg:#f3eee3;
+      --blob1:radial-gradient(circle at 30% 30%, #ff86a8 0%, transparent 70%);
+      --blob2:radial-gradient(circle at 70% 20%, #a0c4ff 0%, transparent 70%);
+      --blob3:radial-gradient(circle at 50% 80%, #fdffb6 0%, transparent 70%);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{font-family:Helvetica,Arial,sans-serif;background:var(--icon-bg);color:#333;display:flex;flex-direction:column;min-height:100vh;position:relative}
+    .hidden{display:none!important}
 
-    /* Reset + Variables */
-    :root {
-      --icon-bg: #f3eee3;
-      --blob1: radial-gradient(circle at 30% 30%, #ff86a8 0%, transparent 70%);
-      --blob2: radial-gradient(circle at 70% 20%, #a0c4ff 0%, transparent 70%);
-      --blob3: radial-gradient(circle at 50% 80%, #fdffb6 0%, transparent 70%);
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
-    body {
-      font-family: Helvetica, Arial, sans-serif;
-      background: var(--icon-bg);
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      position: relative;
-    }
+    /* blobs */
+    .bg-blob{position:absolute;filter:blur(120px);opacity:.6;z-index:0}
+    .blob1{width:800px;height:600px;background:var(--blob1);border-radius:60% 40% 30% 70%/50% 60% 40% 50%;top:-150px;left:-150px}
+    .blob2{width:700px;height:700px;background:var(--blob2);border-radius:50% 60% 40% 50%/60% 50% 70% 40%;top:-200px;right:-200px}
+    .blob3{width:600px;height:600px;background:var(--blob3);border-radius:40% 50% 60% 40%/50% 60% 50% 60%;bottom:-150px;left:50%;transform:translateX(-50%)}
 
-    /* Background blobs */
-    .bg-blob { position: absolute; filter: blur(120px); opacity: .6; z-index: 0; }
-    .blob1 {
-      width: 800px; height: 600px;
-      background: var(--blob1);
-      border-radius: 60% 40% 30% 70%/50% 60% 40% 50%;
-      top: -150px; left: -150px;
-    }
-    .blob2 {
-      width: 700px; height: 700px;
-      background: var(--blob2);
-      border-radius: 50% 60% 40% 50%/60% 50% 70% 40%;
-      top: -200px; right: -200px;
-    }
-    .blob3 {
-      width: 600px; height: 600px;
-      background: var(--blob3);
-      border-radius: 40% 50% 60% 40%/50% 60% 50% 60%;
-      bottom: -150px; left: 50%; transform: translateX(-50%);
-    }
+    /* top-right */
+    .top-right{position:absolute;top:1rem;right:1rem;z-index:2}
+    .top-row{display:flex;align-items:center}
+    .text-block{text-align:right}
+    .text-block .assignment{font-size:2rem}
+    .logo{width:80px;margin-left:.5rem}
+    .authors{margin-top:.5rem;font-family:'Abril Fatface',cursive;font-size:1.2rem}
 
-    /* Top‑right info */
-    .top-right {
-      position: absolute; top: 1rem; right: 1rem; z-index: 2;
-    }
-    .top-row { display: flex; align-items: center; }
-    .text-block { text-align: right; }
-    .text-block .assignment { font-size: 2rem; }
-    .logo { width: 80px; margin-left: .5rem; }
-    .authors { margin-top: .5rem; font-family: 'Abril Fatface', cursive; font-size: 1.2rem; }
+    header{padding:2rem;text-align:left;z-index:1}
+    header h1{font-family:'Abril Fatface',cursive;font-size:6rem;line-height:1;color:#000;margin:0}
+    header p{margin-top:.5rem;font-size:1.2rem;color:#555}
 
-    /* Header */
-    header {
-      padding: 2rem; text-align: left; z-index: 1;
-    }
-    header h1 {
-      font-family: 'Abril Fatface', cursive;
-      font-size: 6rem; line-height: 1; color: #000; margin: 0;
-    }
-    header p {
-      margin-top: .5rem; font-size: 1.2rem; color: #555;
+    .icons-container{display:flex;justify-content:center;align-items:center;gap:2rem;padding:2rem 0}
+    .icon-card{position:relative;text-align:center;transition:transform .3s ease}
+    .icon-card:hover{transform:scale(1.05)}
+    .icon-card img{width:25vw;max-width:100%;height:auto;transition:transform .3s ease}
+    .icon-card:hover img{transform:scale(1.2)}
+    .icon-card span{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:3rem;color:#444;text-transform:uppercase}
+
+    .landing-intro{display:flex;align-items:center;gap:2rem;padding:2rem;width:100%}
+    .landing-intro .overlay-text{width:25%;background:rgba(255,255,255,.8);padding:2rem;font-size:1.2rem;line-height:1.5;color:#222}
+    .landing-intro img{width:75%;height:auto;display:block}
+
+    .feature-grid{display:flex;gap:2rem;padding:2rem;max-width:1200px;margin:0 auto}
+    .feature{flex:1}
+    .feature h3{font-weight:bold;font-size:1.25rem;margin-bottom:.75rem}
+    .feature p{font-size:1rem;line-height:1.6;text-align:left}
+    @media (max-width:768px){
+      .feature-grid{flex-direction:column}
+      .landing-intro{flex-direction:column}
+      .landing-intro .overlay-text,.landing-intro img{width:100%}
+      .icon-card img{width:60vw}
     }
 
-    /* Icons container */
-    .icons-container {
-      display: flex; justify-content: center; align-items: center;
-      gap: 2rem; padding: 2rem 0;
-    }
-    .icon-card {
-      position: relative; text-align: center; transition: transform .3s ease;
-    }
-    .icon-card:hover { transform: scale(1.05); }
-    .icon-card img {
-      width: 25vw; max-width: 100%; height: auto; transition: transform .3s ease;
-    }
-    .icon-card:hover img { transform: scale(1.2); }
-    .icon-card span {
-      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-      font-size: 3rem; color: #444; text-transform: uppercase;
-    }
+    /* viewer */
+    #viewer{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:#fff}
+    #content-frame{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
 
-    /* Landing intro: two-column layout */
-    .landing-intro {
-      display: flex; align-items: center; gap: 2rem;
-      padding: 2rem; width: 100%;
-    }
-    .landing-intro .overlay-text {
-      width: 25%;
-      background: rgba(255,255,255,0.8);
-      padding: 2rem;
-      font-size: 1.2rem; line-height: 1.5; color: #222;
-    }
-    .landing-intro img {
-      width: 75%; height: auto; display: block;
-    }
+    #back-btn{position:fixed;bottom:1rem;left:1rem;background:#fff;border:4px solid;border-image-source:linear-gradient(45deg,red,blue,grey);border-image-slice:1;padding:.5rem 1rem;border-radius:4px;cursor:pointer;z-index:10000}
+    #back-btn:hover{background:#f9f9f9}
 
-    /* Feature grid (3-column paragraphs) */
-    .feature-grid {
-      display: flex; gap: 2rem; padding: 2rem;
-      max-width: 1200px; margin: 0 auto;
-    }
-    .feature {
-      flex: 1;
-    }
-    .feature h3 {
-      font-weight: bold; font-size: 1.25rem; margin-bottom: .75rem;
-    }
-    .feature p {
-      font-size: 1rem; line-height: 1.6; text-align: left;
-    }
-    @media (max-width: 768px) {
-      .feature-grid { flex-direction: column; }
-    }
-
-    /* Full-screen viewer */
-    #viewer {
-      display: none; position: fixed; top: 0; left: 0;
-      width: 100vw; height: 100vh; z-index: 9999;
-    }
-    #content-frame {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%; border: none;
-    }
-
-    /* Back button */
-    #back-btn {
-      position: fixed; bottom: 1rem; left: 1rem;
-      background: #fff; border: 4px solid;
-      border-image-source: linear-gradient(45deg, red, blue, grey);
-      border-image-slice: 1; padding: .5rem 1rem;
-      border-radius: 4px; cursor: pointer; z-index: 10000;
-    }
-    #back-btn:hover { background: #f9f9f9; }
-
-    /* Footer */
-    footer {
-      margin-top: auto; text-align: center;
-      padding: 1rem; background: #0099cc; color: #fff;
-      font-size: 1rem; z-index: 1;
-    }
+    footer{margin-top:auto;text-align:center;padding:1rem;background:#0099cc;color:#fff;font-size:1rem;z-index:1}
   </style>
 </head>
 <body>
@@ -154,138 +80,119 @@
   <div class="bg-blob blob2"></div>
   <div class="bg-blob blob3"></div>
 
-  <div class="top-right">
+  <div class="top-right" id="topRight">
     <div class="top-row">
       <div class="text-block">
         <p>02.526 Interactive Data Visualization</p>
         <p class="assignment">Final Assignment</p>
       </div>
-      <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/SUTD%20LOGO.png"
-           alt="SUTD Logo" class="logo">
+      <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/SUTD%20LOGO.png" alt="SUTD Logo" class="logo" loading="lazy">
     </div>
-    <p class="authors">By – Irfan & Utkarsh</p>
+    <p class="authors">By – Irfan &amp; Utkarsh</p>
   </div>
 
-  <header>
+  <header id="hdr">
     <h1>Active<br>Analytics</h1>
     <p>Select a view:</p>
   </header>
 
   <main>
-    <!-- Icons section -->
-    <div class="icons-container">
-      <div class="icon-card">
-        <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV-HeatMAP/')">
-          <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202,%202025,%2004_33_43%20AM.png"
-               alt="Heatmap Icon">
-          <span>HEAT<em>MAP</em></span>
-        </a>
-      </div>
-      <div class="icon-card">
-        <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV-RouteMAP/')">
-          <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202,%202025,%2004_51_56%20AM.png"
-               alt="RouteMap Icon">
-          <span>ROUTE<em>MAP</em></span>
-        </a>
-      </div>
-      <div class="icon-card">
-        <a href="#" onclick="loadPage(event,'https://utkarsh3c.github.io/IDV---Dashboard/')">
-          <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202,%202025,%2001_21_32%20PM.png"
-               alt="Dashboard Icon">
-          <span>DASH<em>BOARD</em></span>
-        </a>
-      </div>
+    <div class="icons-container" id="icons">
+      <a class="icon-card" data-url="https://utkarsh3c.github.io/IDV-HeatMAP/" rel="noopener">
+        <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202,%202025,%2004_33_43%20AM.png" alt="Heatmap Icon" loading="lazy">
+        <span>HEAT<em>MAP</em></span>
+      </a>
+      <a class="icon-card" data-url="https://utkarsh3c.github.io/IDV-RouteMAP/" rel="noopener">
+        <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202,%202025,%2004_51_56%20AM.png" alt="RouteMap Icon" loading="lazy">
+        <span>ROUTE<em>MAP</em></span>
+      </a>
+      <a class="icon-card" data-url="https://utkarsh3c.github.io/IDV---Dashboard/" rel="noopener">
+        <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/ChatGPT%20Image%20May%202,%202025,%2001_21_32%20PM.png" alt="Dashboard Icon" loading="lazy">
+        <span>DASH<em>BOARD</em></span>
+      </a>
     </div>
 
-    <!-- Landing intro -->
-    <div class="landing-intro">
+    <div class="landing-intro" id="intro">
       <div class="overlay-text">
         Welcome to Active Analytics — Singapore’s most powerful tool for personal mobility intelligence.
-        From smart dashboards to dynamic route maps and blazing heatmaps, our platform gives you an eagle‑eye view
+        From smart dashboards to dynamic route maps and blazing heatmaps, our platform gives you an eagle-eye view
         of your urban movement like never before. Designed for individuals who demand clarity, performance,
         and foresight, Active Analytics redefines what it means to move with purpose in the city. This isn’t just
         data — it’s domination. Plug in, power up, and watch your world unfold with the smartest mobility platform
         Singapore has ever seen.
       </div>
-      <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/Leonardo_Phoenix_10_Welcome_to_Active_Analytics_Singapores_mo_0.jpg"
-           alt="Welcome to Active Analytics">
+      <img src="https://raw.githubusercontent.com/Utkarsh3c/IDV-assignmentFINAL/main/Leonardo_Phoenix_10_Welcome_to_Active_Analytics_Singapores_mo_0.jpg" alt="Welcome to Active Analytics" loading="lazy">
     </div>
 
-    <!-- Feature grid -->
-    <section class="feature-grid">
+    <section class="feature-grid" id="features">
       <div class="feature">
         <h3>Premium Access, Zero Paywalls</h3>
-        <p>
-          Active Analytics delivers every feature you need without locking anything behind a paywall.
-          While other mobility and fitness platforms make you pay to access advanced dashboards,
-          route tracking, or heatmap visualizations, we give it all to you for free. No trial periods,
-          no hidden fees, no forced upgrades — just pure analytical power from the moment you sign up.
-          We believe that insights about your movement shouldn’t be gated. With Active Analytics,
-          you’re not just getting access; you’re getting a competitive edge in navigating and
-          understanding your activity in Singapore’s urban environment — completely unlocked,
-          from day one.
-        </p>
+        <p>Active Analytics delivers every feature you need without locking anything behind a paywall…</p>
       </div>
       <div class="feature">
         <h3>Full Data Ownership</h3>
-        <p>
-          At Active Analytics, your data belongs to you — always. Unlike other platforms that collect
-          your personal mobility information and use it for targeted ads or third-party deals, we put
-          full control in your hands. You can view, export, or permanently delete your data at any time.
-          No hidden tracking, no backend selling, and absolutely no compromises on privacy. Our mission
-          is simple: empower you with tools to analyze and act on your own terms. You’re not the product —
-          you’re the user. With full data autonomy, Active Analytics ensures transparency and trust
-          every step, route, and decision of the way.
-        </p>
+        <p>At Active Analytics, your data belongs to you — always…</p>
       </div>
       <div class="feature">
         <h3>Unified Mobility Hub</h3>
-        <p>
-          Why waste time switching between multiple fitness and mobility apps when Active Analytics
-          gives you everything in one powerful platform? While other services scatter your insights
-          across different tools, we unify your mobility data into a single, intelligent hub. Track
-          your activity, view comparative analytics, discover your top routes, and analyze performance —
-          all without needing five different apps. No more fragmented dashboards or syncing issues.
-          With Active Analytics, you experience seamless integration and unmatched convenience.
-          It’s the only place where performance meets precision, giving you a clear, competitive edge
-          over every other fitness platform in Singapore. All in one.
-        </p>
+        <p>Why waste time switching between multiple apps when Active Analytics gives you everything in one hub…</p>
       </div>
     </section>
 
-    <!-- Full-screen viewer & Back button -->
-    <div id="viewer">
-      <button id="back-btn">← Back</button>
-      <iframe id="content-frame"></iframe>
+    <div id="viewer" aria-hidden="true">
+      <button id="back-btn" type="button">← Back</button>
+      <iframe id="content-frame" title="Embedded view"></iframe>
     </div>
   </main>
 
-  <footer>&copy; 2025 Activity Analytics</footer>
+  <footer id="ftr">&copy; 2025 Activity Analytics</footer>
 
   <script>
-    function loadPage(e, url) {
-      e.preventDefault();
-      document.querySelector('.icons-container').style.display = 'none';
-      document.querySelector('header').style.display = 'none';
-      document.querySelector('.top-right').style.display = 'none';
-      document.querySelector('.landing-intro').style.display = 'none';
-      document.querySelector('.feature-grid').style.display = 'none';
-      document.querySelector('footer').style.display = 'none';
-      document.getElementById('viewer').style.display = 'block';
-      document.getElementById('content-frame').src = url;
+    const sections = [document.getElementById('icons'), document.getElementById('hdr'),
+      document.getElementById('topRight'), document.getElementById('intro'),
+      document.getElementById('features'), document.getElementById('ftr')];
+    const viewer = document.getElementById('viewer');
+    const frame  = document.getElementById('content-frame');
+    const back   = document.getElementById('back-btn');
+
+    function hideMain() { sections.forEach(el => el.classList.add('hidden')); }
+    function showMain() { sections.forEach(el => el.classList.remove('hidden')); }
+    function showViewer(url) {
+      hideMain();
+      viewer.style.display = 'block';
+      frame.src = url;
+
+      // Fallback: if the embed fails to render (blocked/CSP/assets 404), open in new tab and restore UI
+      let timer = setTimeout(() => {
+        try {
+          // Same-origin check (github.io same host). If document is empty -> fail
+          const doc = frame.contentDocument;
+          if (!doc || !doc.body || !doc.body.children.length) throw new Error('empty');
+        } catch (e) {
+          window.open(url, '_blank', 'noopener');
+          closeViewer();
+        }
+      }, 2000);
+
+      frame.addEventListener('load', () => clearTimeout(timer), { once: true });
     }
-    document.getElementById('back-btn').addEventListener('click', e => {
+    function closeViewer() {
+      viewer.style.display = 'none';
+      frame.removeAttribute('src');
+      showMain();
+      window.scrollTo(0, 0);
+    }
+
+    // Event delegation for icon clicks
+    document.getElementById('icons').addEventListener('click', (e) => {
+      const card = e.target.closest('.icon-card');
+      if (!card) return;
       e.preventDefault();
-      document.getElementById('viewer').style.display = 'none';
-      document.getElementById('content-frame').src = '';
-      document.querySelector('.icons-container').style.display = 'flex';
-      document.querySelector('header').style.display = 'block';
-      document.querySelector('.top-right').style.display = 'block';
-      document.querySelector('.landing-intro').style.display = 'flex';
-      document.querySelector('.feature-grid').style.display = 'flex';
-      document.querySelector('footer').style.display = 'block';
-      window.scrollTo(0,0);
+      const url = card.getAttribute('data-url');
+      showViewer(url);
     });
+
+    back.addEventListener('click', (e) => { e.preventDefault(); closeViewer(); });
   </script>
 </body>
 </html>
